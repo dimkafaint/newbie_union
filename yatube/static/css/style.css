@@ -1,0 +1,151 @@
+.author {
+    margin-top: 50px;
+    display: flex;
+    justify-content: space-between;
+}
+
+h1 {
+    font-size: 45px;
+}
+
+h1, h2 {
+    font-family: Lucida Console;
+    text-transform: uppercase;
+}
+
+h2 {
+    font-size: 20px;
+    line-height: 53px;
+}
+
+.about p {
+    margin: 45px 0;
+    font-size: 19px;
+}
+
+.processing {
+    display: flex;
+    position: relative;
+}
+
+.processing__help {
+    background-color: black;
+    color: #fff;
+    padding: 15px 48px;
+    text-align: center;
+    margin-left: 105px;
+    background-image: url(/static/img/Luna.jpg);
+    background-position: center;
+    background-size: cover;
+    box-shadow: 100px 100px 100px 100px rgba(7, 7, 7, 0.6) inset;
+}
+
+.processing__help--title {
+    font-size: 25px;
+}
+
+.processing__help--text {
+   font-size: 15px;
+}
+
+.processing__help--text::after {
+    content: "";
+    display: inline-block;
+    background: #fff;
+    width: 60%;
+    height: 1px;
+}
+
+.symbol {
+    position: relative;
+    margin: 85px 0;
+}
+
+.symbol::before {
+    content: "";
+    display: inline-block;
+    background: black;
+    width: 44%;
+    height: 1px;
+}
+
+.symbol::after {
+    content: "";
+    display: inline-block;
+    background: black;
+    width: 45%;
+    height: 1px;
+    margin-left: 136px;
+}
+
+.vertical {
+    width: 90px;
+    height: 15px;
+    background: black;
+    position: absolute;
+    left: 46%;
+    top: 51%;
+}
+
+.horizontal {
+    width: 90px;
+    height: 15px;
+    background: black;
+    position: absolute;
+    left: 46%;
+    top: 50%;
+    transform: rotate(270deg);
+}
+
+.more {
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.more::after {
+    content: "";
+    display: inline-block;
+    background: black;
+    width: 1px;
+    height: 30px;
+    margin-top: 20px;
+}
+
+.the__end {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.stamp {
+    text-align: center;
+    font-family: segoe script;
+    font-size: 11px;
+    font-weight: bold;
+    margin: 40px;
+}
+
+.social ul {
+    display: ruby-text-container;
+}
+
+.social li {
+    list-style: none;
+}
+
+.typewriter {
+     overflow: hidden;
+    border-right: .15em solid black;
+    white-space: nowrap;
+    animation: typing 3.5s steps(8, end), blink-caret .5s step-end infinite;
+}
+
+/* The typing effect */
+@keyframes typing {
+  from { width: 0 }
+  to { width: 15% }
+}
+
+/* The typewriter cursor effect */
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: black }
