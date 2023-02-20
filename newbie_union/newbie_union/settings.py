@@ -7,7 +7,7 @@ SECRET_KEY = 'kjbwpb4)#)7a&-ex0f%2djt1fdf%lpvs3#6b90%q!angg3spk1'
 
 DEBUG = True
 
-ALLOWED_HOSTS = ['newbie-union.fun', 'localhost', '127.0.0.1', '194.32.248.13']
+ALLOWED_HOSTS = ['web','194.32.248.13','newbie-union.fun', 'localhost', '127.0.0.1']
 
 
 INSTALLED_APPS = [
