@@ -1,13 +1,17 @@
 import os
+from dotenv import load_dotenv
+
+
+load_dotenv()
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
-SECRET_KEY = 'kjbwpb4)#)7a&-ex0f%2djt1fdf%lpvs3#6b90%q!angg3spk1'
+SECRET_KEY = str(os.getenv('SECRET_KEY'))
 
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['web','194.32.248.13','newbie-union.fun', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['web', '194.32.248.13', 'newbie-union.fun', 'localhost', '127.0.0.1']
 
 
 INSTALLED_APPS = [
@@ -59,7 +63,11 @@ WSGI_APPLICATION = 'newbie_union.wsgi.application'
 
 
 DATABASES = {
-    'default': {
+    'dev': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    },
+    'prod': {
         'ENGINE': os.getenv('DB_ENGINE'),
         'NAME': os.getenv('DB_NAME'),
         'USER': os.getenv('POSTGRES_USER'),
@@ -68,6 +76,8 @@ DATABASES = {
         'PORT': os.getenv('DB_PORT')
     }
 }
+
+DATABASES['default'] = DATABASES['dev' if DEBUG else 'prod']
 
 
 AUTH_PASSWORD_VALIDATORS = [
@@ -86,7 +96,6 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
-
 LANGUAGE_CODE = 'ru'
 
 TIME_ZONE = 'UTC'
@@ -103,8 +112,9 @@ CSRF_FAILURE_VIEW = 'core.views.csrf_failure'
 
 
 STATIC_URL = '/static/'
-# STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+if not DEBUG:
+    STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')

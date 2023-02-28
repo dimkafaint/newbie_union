@@ -143,9 +143,9 @@ class PostPaginatorTest(TestCase):
         )
         cls.blog_count = PAGINATOR_COUNT + 1
         cls.blog = [Post(text=f'Тестовый текст№{id}',
-                          author=cls.user,
-                          group=cls.group,
-                          ) for id in range(cls.blog_count)]
+                         author=cls.user,
+                         group=cls.group,
+                         ) for id in range(cls.blog_count)]
         Post.objects.bulk_create(cls.blog)
 
     def test_paginator(self):
